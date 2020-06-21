@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: owlvey-bifrost-dev-deployment
+  name: owlvey-bifrost-local-deployment
   namespace: owlvey
 spec:
   replicas: 1
@@ -12,21 +12,7 @@ spec:
     metadata:
       labels:
         key: owlvey-bifrost-pod
-    spec:
-      volumes:
-      - name: source
-        hostPath:
-          path: /host_mnt/f/owlvey/devops/bifrost
-          type: DirectoryOrCreate
-      initContainers:
-      - name: kaniko
-        image: gcr.io/kaniko-project/executor:latest
-        args: ["--dockerfile=/workspace/Dockerfile",
-               "--context=dir://",
-               "--destination=192.168.0.14:48700/owlvey/bifrost:latest", "--insecure-registry", "--insecure"]
-        volumeMounts:
-        - mountPath: /workspace
-          name: source
+    spec:      
       containers:
       - name: owlvey-bifrost
         image: localhost:48700/owlvey/bifrost:latest
