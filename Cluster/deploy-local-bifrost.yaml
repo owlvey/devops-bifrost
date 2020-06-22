@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: owlvey-bifrost-local-deployment
   namespace: owlvey
-spec:
+spec:  
   replicas: 1
   selector:
     matchLabels:
@@ -16,7 +16,7 @@ spec:
       containers:
       - name: owlvey-bifrost
         image: localhost:48700/owlvey/bifrost:latest
-        imagePullPolicy: Always
+        imagePullPolicy: Always        
         ports:
             - containerPort: 48702
               name: admin-port
