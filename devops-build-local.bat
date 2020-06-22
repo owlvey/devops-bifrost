@@ -1,4 +1,4 @@
-pushd "./Container"
+pushd "./container"
 
 docker-compose build
 

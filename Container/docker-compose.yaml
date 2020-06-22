@@ -3,7 +3,7 @@ services:
   service-bifrost:
         build:
           context: ./..
-          dockerfile: ./Container/Dockerfile
+          dockerfile: ./container/Dockerfile
         image: owlvey/bifrost
   
 
